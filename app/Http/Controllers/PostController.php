@@ -41,7 +41,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Post::find($id);
+        return response()->json(['message' => 'The post was not found'], 404);
     }
 
     /**
