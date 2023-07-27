@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -11,24 +12,29 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return response()->json($posts);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+
+     public function store(Request $request)
+     {
+         $validatedData = $request->validate([
+             'title' => 'required|string|max:255',
+             'body' => 'required|string',
+             'author' => 'required|string|max:255',
+         ]);
+         
+         $post = Post::create($validatedData);
+     
+         return response()->json(['message' => 'The post was successfully created', 'data' => $post], 201);
+     }
+     
+     
 
     /**
      * Display the specified resource.
