@@ -10,9 +10,7 @@ use App\Models\Post;
 
 class PostControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+
     public function test_example(): void
     {
         $response = $this->get('/');
@@ -32,7 +30,7 @@ class PostControllerTest extends TestCase
         $response->assertJson([
             'message' => 'The post was successfully created',
             'data' => [
-                'title' => 'Test Post',
+                'title' => 'Test ²Post',
                 'body' => 'This is a test post.',
                 'author' => 'Moi même',
             ],
