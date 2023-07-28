@@ -21,26 +21,31 @@ class PostController extends Controller
      */
 
 
-     public function store(Request $request)
-     {
-         $validatedData = $request->validate([
-             'title' => 'required|string|max:255',
-             'body' => 'required|string',
-             'author' => 'required|string|max:255',
-         ]);
-         
-         $post = Post::create($validatedData);
-     
-         return response()->json(['message' => 'The post was successfully created', 'data' => $post], 201);
-     }
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+            'author' => 'required|string|max:255',
+        ]);
+
+        $post = Post::create($validatedData);
+
+        return response()->json(['message' => 'The post was successfully created', 'data' => $post], 201);
+    }
 
     /**
-     * Display the specified resource.
-     */
+ * Display the specified resource.
+ */
     public function show(string $id)
     {
         $post = Post::find($id);
-        return response()->json(['message' => 'The post was not found'], 404);
+
+        if (!$post) {
+            return response()->json(['message' => 'Post not found'], 404);
+        }
+
+        return response()->json(['message' => 'The post was found', 'data' => $post], 200);
     }
 
     /**
@@ -56,9 +61,21 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $updatedData =$request->update([
-            
+        $post = Post::find($id);
+
+        if(!$post) {
+            return response()->json(['message' => 'Post not found'], 404);
+        }
+
+        $updatedData =$request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+            'author' => 'required|string|max:255',
         ]);
+
+        $post->update($updatedData);
+
+        return response()->json(['message' => 'The post was successfully updated', 'data' => $post], 200);
     }
 
     /**
