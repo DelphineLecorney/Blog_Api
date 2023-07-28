@@ -33,8 +33,6 @@ class PostController extends Controller
      
          return response()->json(['message' => 'The post was successfully created', 'data' => $post], 201);
      }
-     
-     
 
     /**
      * Display the specified resource.
@@ -58,7 +56,9 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $updatedData =$request->update([
+            
+        ]);
     }
 
     /**

@@ -20,6 +20,7 @@ class PostErrorTest extends TestCase
 
         $response->assertJsonMissingValidationErrors;
     }
+    
     public function testCreatePostWithoutBody()
     {
 
@@ -31,6 +32,7 @@ class PostErrorTest extends TestCase
 
         $response->assertJsonMissingValidationErrors('body');
     }
+
     public function testCreatePostWithoutAuthor()
     {
 
