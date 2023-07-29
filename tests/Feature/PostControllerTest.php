@@ -9,63 +9,52 @@ use App\Models\Post;
 
 class PostControllerTest extends TestCase
 {
-    // public function test_example(): void
-    // {
-    //     $response = $this->get('/');
+    public function test_example(): void
+    {
+        $response = $this->get('/');
 
-    //     $response->assertStatus(200);
-    // }
+        $response->assertStatus(200);
+    }
 
-    // public function testCreatePost()
-    // {
-    //     $response = $this->postJson('/api/posts', [
-    //         'title' => 'Test Post',
-    //         'body' => 'This is a test post.',
-    //         'author' => 'Moi même',
-    //     ]);
-    //     $response->assertStatus(201);
+    public function testCreatePost()
+    {
+        $postData = [
+            'title' => 'Test Post',
+            'body' => 'This is a test post.',
+            'author' => 'Moi même',
+        ];
 
-    //     $response->assertJson([
-    //         'message' => 'The post was successfully created',
-    //         'data' => [
-    //             'title' => 'Test Post',
-    //             'body' => 'This is a test post.',
-    //             'author' => 'Moi même',
-    //         ],
-    //     ]);
-    //     $this->assertDatabaseHas('posts', [
-    //         'title' => 'Test Post',
-    //         'body' => 'This is a test post.',
-    //         'author' => 'Moi même',
-    //     ]);
-    // }
+        $response = $this->postJson('/api/posts', $postData);
+        $response->assertStatus(201);
 
-    // public function testCreateMultiPosts()
-    // {
-    //     for ($i = 1; $i <= 10; $i++) {
-    //         $response = $this->postJson('/api/posts', [
-    //             'title' => 'Test Post ' . $i,
-    //             'body' => "This is a post number {$i}",
-    //             'author' => 'Moi même'
-    //         ]);
-    //         $response->assertStatus(201);
+        $response->assertJson([
+            'message' => 'The post was successfully created',
+            'data' => $postData,
+        ]);
 
-    //         $response->assertJson([
-    //             'message' => 'The post was successfully created',
-    //             'data' => [
-    //                 'title' => 'Test Post ' . $i,
-    //                 'body' => "This is a post number {$i}",
-    //                 'author' => 'Moi même'
-    //             ]
-    //         ]);
+        $this->assertDatabaseHas('posts', $postData);
+    }
 
-    //         $this->assertDatabaseHas('posts', [
-    //             'title' => 'Test Post ' . $i,
-    //             'body' => "This is a post number {$i}",
-    //             'author' => 'Moi même',
-    //         ]);
-    //     }
-    // }
+    public function testCreateMultiPosts()
+    {
+        for ($i = 1; $i <= 10; $i++) {
+            $postData = [
+                'title' => 'Test Post ' . $i,
+                'body' => "This is a post number {$i}",
+                'author' => 'Moi même',
+            ];
+
+            $response = $this->postJson('/api/posts', $postData);
+            $response->assertStatus(201);
+
+            $response->assertJson([
+                'message' => 'The post was successfully created',
+                'data' => $postData,
+            ]);
+
+            $this->assertDatabaseHas('posts', $postData);
+        }
+    }
 
     public function testUpdatePost()
     {
