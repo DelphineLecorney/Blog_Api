@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return response()->json($posts, 200, [], JSON_PRETTY_PRINT);
+        return response()->json([$posts, 200, 'message' => 'OK', 'data' => $posts], 200, [], JSON_PRETTY_PRINT);
     }
 
     /**
@@ -31,7 +31,7 @@ class PostController extends Controller
 
         $post = Post::create($validatedData);
 
-        return response()->json(['message' => 'The post was successfully created', 'data' => $post], 201);
+        return response()->json(['status' => 201, 'message' => 'The post was successfully created', 'data' => $post], 201, [], JSON_PRETTY_PRINT);
     }
 
     /**
@@ -42,10 +42,10 @@ class PostController extends Controller
         $post = Post::find($id);
 
         if (!$post) {
-            return response()->json(['message' => 'Post not found'], 404);
+            return response()->json(['status' => 404, 'message' => 'Post not found', 'data' => null], 404, [], JSON_PRETTY_PRINT);
         }
 
-        return response()->json(['message' => 'The post was found', 'data' => $post], 200);
+        return response()->json(['status' => 200, 'message' => 'The post was found', 'data' => $post], 200, [], JSON_PRETTY_PRINT);
     }
 
     /**
@@ -64,7 +64,7 @@ class PostController extends Controller
         $post = Post::find($id);
 
         if(!$post) {
-            return response()->json(['message' => 'Post not found'], 404);
+            return response()->json(['status' => 200, 'message' => 'The post was successfully updated', 'data' => $post], 200, [], JSON_PRETTY_PRINT);
         }
 
         $updatedData = $request->validate([
@@ -86,7 +86,7 @@ class PostController extends Controller
         $post = Post::find($id);
 
         if(!$post) {
-            return response()->json(['message' => 'Post not found'], 404);
+            return response()->json(['status' => 200, 'message' => 'The post was successfully deleted', 'data' => null], 200, [], JSON_PRETTY_PRINT);
         }
 
         $post->delete();

@@ -28,8 +28,13 @@ class PostControllerTest extends TestCase
         $response->assertStatus(201);
 
         $response->assertJson([
+            'status' => 201,
             'message' => 'The post was successfully created',
-            'data' => $postData,
+            'data' => [
+                'title' => 'Test Post',
+                'body' => 'This is a test post.',
+                'author' => 'Moi même',
+            ],
         ]);
 
         $this->assertDatabaseHas('posts', $postData);
