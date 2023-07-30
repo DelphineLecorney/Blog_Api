@@ -35,50 +35,32 @@ class PostControllerTest extends TestCase
 
         $this->assertDatabaseHas('posts', $postData);
     }
+    public function testCreateMultiPosts()
+    {
+        $createdMultiPostsData = [];
 
-    // public function testCreateMultiPosts()
-    // {
-    //     for ($i = 1; $i <= 10; $i++) {
-    //         $postData = [
-    //             'title' => 'Test Post ' . $i,
-    //             'body' => "This is a post number {$i}",
-    //             'author' => 'Moi même',
-    //         ];
+        for ($i = 1; $i <= 10; $i++) {
+            $postData = [
+                'title' => 'Test Post ' . $i,
+                'body' => "This is a post number {$i}",
+                'author' => 'Moi même',
+            ];
 
-    //         $response = $this->postJson('/api/posts', $postData);
-    //         $response->assertStatus(201);
+            $response = $this->postJson('/api/posts', $postData);
+            $response->assertStatus(201);
 
-    //         $response->assertJson([
-    //             'message' => 'The post was successfully created',
-    //             'data' => $postData,
-    //         ]);
+            $response->assertJson([
+                'status' => 201,
+                'message' => 'The post was successfully created',
+                'data' => $postData,
+            ]);
+            $createdMultiPostsData[] = $postData;
+        }
+        foreach($createdMultiPostsData as $postData) {
+            $this->assertDatabaseHas('posts', $postData);
+        }
 
-    //         $this->assertDatabaseHas('posts', $postData);
-    //     }
-    //     $createdMultiPostsData = [];
-
-    //     for ($i = 1; $i <= 10; $i++) {
-    //         $postData = [
-    //             'title' => 'Test Post ' . $i,
-    //             'body' => "This is a post number {$i}",
-    //             'author' => 'Moi même',
-    //         ];
-
-    //         $response = $this->postJson('/api/posts', $postData);
-    //         $response->assertStatus(201);
-
-    //         $response->assertJson([
-    //             'status' => 201,
-    //             'message' => 'The post was successfully created',
-    //             'data' => $postData,
-    //         ]);
-    //         $createdMultiPostsData[] = $postData;
-    //     }
-    //     foreach($createdMultiPostsData as $postData) {
-    //         $this->assertDatabaseHas('posts', $postData);
-    //     }
-
-    // }
+    }
 
     public function testUpdatePost()
     {
