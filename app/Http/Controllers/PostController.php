@@ -95,4 +95,11 @@ class PostController extends Controller
         return response()->json(['message' => 'The post was successfully deleted'], 200);
 
     }
+
+    public function getPaginatedPosts()
+    {
+        $posts = Post::paginate(10);
+
+        return response()->json($posts);
+    }
 }
