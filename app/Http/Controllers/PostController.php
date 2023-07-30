@@ -42,7 +42,7 @@ class PostController extends Controller
         $post = Post::find($id);
 
         if (!$post) {
-            return response()->json(['status' => 404, 'message' => 'Post not found', 'data' => null], 404, [], JSON_PRETTY_PRINT);
+            return response()->json(['status' => 404, 'message' => "The post wasn't found", 'data' => null], 404, [], JSON_PRETTY_PRINT);
         }
 
         return response()->json(['status' => 200, 'message' => 'The post was found', 'data' => $post], 200, [], JSON_PRETTY_PRINT);

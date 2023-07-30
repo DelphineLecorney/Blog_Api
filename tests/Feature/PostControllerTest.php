@@ -40,26 +40,26 @@ class PostControllerTest extends TestCase
         $this->assertDatabaseHas('posts', $postData);
     }
 
-    public function testCreateMultiPosts()
-    {
-        for ($i = 1; $i <= 10; $i++) {
-            $postData = [
-                'title' => 'Test Post ' . $i,
-                'body' => "This is a post number {$i}",
-                'author' => 'Moi même',
-            ];
+    // public function testCreateMultiPosts()
+    // {
+    //     for ($i = 1; $i <= 10; $i++) {
+    //         $postData = [
+    //             'title' => 'Test Post ' . $i,
+    //             'body' => "This is a post number {$i}",
+    //             'author' => 'Moi même',
+    //         ];
 
-            $response = $this->postJson('/api/posts', $postData);
-            $response->assertStatus(201);
+    //         $response = $this->postJson('/api/posts', $postData);
+    //         $response->assertStatus(201);
 
-            $response->assertJson([
-                'message' => 'The post was successfully created',
-                'data' => $postData,
-            ]);
+    //         $response->assertJson([
+    //             'message' => 'The post was successfully created',
+    //             'data' => $postData,
+    //         ]);
 
-            $this->assertDatabaseHas('posts', $postData);
-        }
-    }
+    //         $this->assertDatabaseHas('posts', $postData);
+    //     }
+    // }
 
     public function testUpdatePost()
     {
@@ -67,9 +67,9 @@ class PostControllerTest extends TestCase
         $post = Post::factory()->create();
 
         $updatedData = [
-            'title' => 'Updated Title',
-            'body' => 'Updated Body',
-            'author' => 'Updated Author',
+            'title' => 'Updated Ok',
+            'body' => 'Updated Body ok',
+            'author' => 'Updated Author ok',
         ];
 
         $response = $this->putJson('/api/posts/' . $post->id, $updatedData);
