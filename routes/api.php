@@ -30,3 +30,5 @@ Route::put('/posts/{id}', [PostController::class, 'update']);
 Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 
 Route::get('/posts', [PostController::class, 'getPaginatedPosts']);
+
+Route::post('/register', [AuthController::class, 'register']);
