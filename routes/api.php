@@ -29,4 +29,4 @@ Route::put('/posts/{id}', [PostController::class, 'update']);
 
 Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 
-Route::get('/posts', 'PostController@getPaginatedPosts');
+Route::get('/posts', [PostController::class, 'getPaginatedPosts']);
