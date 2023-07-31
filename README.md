@@ -130,7 +130,7 @@ In this controller, implement methods for registration, login, logout, etc., usi
 <!-- [![HTTP](https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) -->
 
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">
-  <img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG" alt="HTTP" style="max-width: 60px; max-height: 60px;" />
+  <img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG" alt="HTTP" style="max-width: 30px; max-height: 30px;" />
 </a>
 
 
