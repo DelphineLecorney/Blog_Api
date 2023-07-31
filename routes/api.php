@@ -35,3 +35,5 @@ Route::get('/posts', [PostController::class, 'getPaginatedPosts']);
 Route::post('/register', [AuthController::class, 'create']);
 
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::post('/logout', [AuthController::class, 'logout']);
