@@ -157,13 +157,15 @@ Usage in Code: Returned if there is an error during the deletion process that is
 <h2 align="left">💻 Tech Stack</h2>  
 
 <p align='left'>
- <img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/Laravel.JPG" alt="laravel" height="50" width="70" />
+ <img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/Laravel.JPG" alt="laravel" height="50" width="90" />
  <img src="https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/1ac69ce5fbc389725f16f989fa53c62d6e1b4883/social%20icons/php.svg" alt="php" height="50" width="50" />
 <img src="https://github.com/DelphineLecorney/Template-readme/blob/main/PICTURES_read_me_/myphpadmin.png" alt="phpmyadmin" height="60" width="60" />   
 <img src="https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/62487087dc4f4f5efee637addbc67a16dd374bf6/text%20editors/vscode.svg" alt="vsCode" height="50" width="50" /> 
 </p>
 
+
 [<h2 align="center">Contact me</h2>](https://www.linkedin.com/in/delphine-lecorney/)
+<br>
 
 
 
