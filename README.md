@@ -1,3 +1,175 @@
+<br>
+<h1 align="center">⭐️ Laravel RESTful API  ⭐️</h1>
+
+<h2 align="center">Hi , I'm Delphine  👋</h2>  
+
+<h3 align="center">This repository is a php exercise carried out during Becode training   </h3> <br>
+
+<h2 align="left"><img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/Overview.JPG"  height="50" width="50" /> Overview</h2> 
+
+>This project aims to create a RESTful API using Laravel, implementing the MVC pattern (without the V - View component), and performing CRUD operations on a MySQL database using Eloquent ORM. The API will provide endpoints to manage posts data, including creating, reading, updating, and deleting posts. The data will be returned in JSON format.
+
+
+The url of the API will be for example: http://localhost:8000/api/v1/posts
+
+<h2 align="left">📦 Prerequisites</h2> 
+<br>
+
+>Before getting started with this project, you'll need the following installed on your system:
+
+- PHP (>= 7.4)
+- Composer (Dependency Manager for PHP)
+- MyPHPAdmin (or any other supported database)
+- Web Server (e.g., Apache, Nginx)
+
+>Make sure you have these dependencies installed and properly configured on your machine before proceeding with the installation.
+<br>
+<h2 align="left">🚀 Installation</h2>
+
+1. Clonez ce dépôt de code sur votre machine locale :
+
+
+* Clone the Repository
+  ```sh
+    git clone https://github.com/your-username/Blog_Api.git
+  ```
+  
+	```sh
+	  cd Blog_Api
+	```
+* Create a database and update the .env file with your database credentials.
+	```
+    public function up(): void
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 255);
+            $table->text('body');
+            $table->string('author', 255);
+            $table->timestamps();
+        });
+    }
+	```
+* Install Composer dependencies using composer install.
+* Generate a new application key by running php artisan key:generate.
+* Run Laravel migrations to set up the required database tables using php artisan migrate.
+* The API will now be accessible at http://localhost:8000/api/v1/.
+<br><br>
+<h2 align="left"><img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/JWT.JPG"  height="50" width="50" />JWT Authentication  </h2>
+
+>To implement an authentication system using JWT (JSON Web Tokens), you can follow these steps:
+
+* Install the required package:
+	```
+	composer require tymon/jwt-auth
+	```
+* Publish the package configuration file:
+	```
+	php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+	```
+* Generate a secret key for JWT:
+	```
+	php artisan jwt:secret
+	```
+* Update the .env file to configure JWT:
+	```
+	Update the .env file to configure JWT:
+	```
+* Create a new controller for handling authentication:
+	```
+	php artisan make:controller AuthController
+	```
+In this controller, implement methods for registration, login, logout, etc., using JWT for token-based authentication.
+
+* Define routes for authentication in the routes/api.php file.
+<br>
+<h2 align="left"><img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/Objective.jpg"  height="50" width="50" /> Objectives </h2>
+
+- Build a RESTful API using Laravel.
+- Understand and implement the MVC pattern.
+- Perform CRUD operations (Create, Read, Update, Delete) on a MySQL database using Eloquent ORM.
+- Validate data using Laravel's validation methods.
+- Create and manage API endpoints for GET, POST, PUT, and DELETE requests.
+- Return data in JSON format.
+<br>
+
+<h2 align="left"><img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/Features.JPG"  height="50" width="50" /> Features</h2>
+  
+
+- GET /api/v1/posts: Retrieve all posts.
+- GET /api/v1/post/:id: Retrieve a specific post by its ID.
+- POST /api/v1/post: Create a new post.
+- PUT /api/v1/post/:id: Update an existing post by its ID.
+- DELETE /api/v1/post/:id: Delete a post by its ID
+<br>
+<h2 align="left">🏗️ Project Structure</h2>
+
+```
+	/api
+	|-- app/                 # Laravel application files
+	|-- config/              # Configuration files
+	|-- database/            # Database migrations and seeds
+	|-- public/              # Publicly accessible files
+	|-- resources/           # Views, language files, and other resources (not used in this API)
+	|-- routes/              # Route definitions and mapping
+	|-- storage/             # Storage for logs and other temporary files
+	|-- tests/               # Test cases (if implemented)
+	|-- .env                 # Environment configuration file
+	|-- .htaccess            # Apache configuration for URL rewriting (if needed)
+	|-- artisan              # Laravel command-line utility
+	|-- composer.json        # Composer package manager configuration
+	|-- README.md            # Project README (this file)
+```
+<br>
+
+* Laravel already includes its routing system, so there's no need to install a separate router package.
+* Use Thunder Client (VSCode extension) or Postman to test the API endpoints and verify responses.
+<br>
+<h4>Pay attention to HTTP status codes (e.g., 200, 201, 400, 404, 500) to understand the API's behavior.</h4>
+
+[![HTTP](https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+<h4>Status Code: 200</h4>
+
+>Description: The request was successful, and the server has returned the requested data.
+Usage in Code: Returned when a post is successfully deleted from the database. It indicates that the deletion process was successful, and the post was removed.
+
+<h4>Status Code: 201</h4>
+
+>The request succeeded, and a new resource was created as a result. This is typically the response sent after POST requests, or some PUT requests.
+
+<h4>Status Code: 400</h4>
+
+>The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+<h4>Status Code: 404 </h4>
+
+>Not Found
+Description: The server could not find the requested resource.
+Usage in Code: Returned when attempting to delete a post with an ID that does not exist in the database. It indicates that the post was not found and, therefore, cannot be deleted.
+
+<h4>Status Code: 500</h4>
+
+>Description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+Usage in Code: Returned if there is an error during the deletion process that is not expected or handled explicitly. This could include database errors or other unexpected exceptions.
+
+<!-- <img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG"
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status alt="http" height="50" width="50" /> -->
+
+<h2 align="left">💻 Tech Stack</h2>  
+
+<p align='left'>
+ <img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/Laravel.JPG" alt="laravel" height="50" width="50" />
+ <img src="https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/1ac69ce5fbc389725f16f989fa53c62d6e1b4883/social%20icons/php.svg" alt="php" height="50" width="50" />
+<img src="https://github.com/DelphineLecorney/Template-readme/blob/main/PICTURES_read_me_/myphpadmin.png" alt="phpmyadmin" height="60" width="60" />   
+<img src="https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/62487087dc4f4f5efee637addbc67a16dd374bf6/text%20editors/vscode.svg" alt="vsCode" height="50" width="50" /> 
+</p>
+
+[<h2 align="center">Contact me</h2>](https://www.linkedin.com/in/delphine-lecorney/)
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
