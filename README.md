@@ -163,11 +163,12 @@ Usage in Code: Returned if there is an error during the deletion process that is
 <img src="https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/62487087dc4f4f5efee637addbc67a16dd374bf6/text%20editors/vscode.svg" alt="vsCode" height="50" width="50" /> 
 </p>
 
+<h2 align="left">Contact me :</h2>
 
-[<h2 align="center">Contact me</h2>](https://www.linkedin.com/in/delphine-lecorney/)
+<a href="https://www.linkedin.com/in/delphine-lecorney/">
+  <img src="https://github.com/DelphineLecorney/Template-readme/blob/main/PICTURES_read_me_/linkedin.png" alt="Delphine" width="60px">
+</a>
 <br>
-
-
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
