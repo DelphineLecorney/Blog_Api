@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,6 @@ Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 
 Route::get('/posts', [PostController::class, 'getPaginatedPosts']);
 
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'create']);
+
+Route::post('/login', [AuthController::class, 'login']);
