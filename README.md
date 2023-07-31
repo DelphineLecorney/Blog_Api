@@ -127,12 +127,7 @@ In this controller, implement methods for registration, login, logout, etc., usi
 <br>
 <h4>Pay attention to HTTP status codes (e.g., 200, 201, 400, 404, 500) to understand the API's behavior.</h4>
 
-<!-- [![HTTP](https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) -->
-
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">
-  <img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG" alt="HTTP" style="max-width: 30px; max-height: 30px;" />
-</a>
-
+<p align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"><img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG" alt="HTTP" style="max-width: 30px; max-height: 30px;" /></a></p>
 
 <h4>Status Code: 200</h4>
 
@@ -158,8 +153,6 @@ Usage in Code: Returned when attempting to delete a post with an ID that does no
 >Description: The server encountered an unexpected condition that prevented it from fulfilling the request.
 Usage in Code: Returned if there is an error during the deletion process that is not expected or handled explicitly. This could include database errors or other unexpected exceptions.
 
-<!-- <img src="https://github.com/DelphineLecorney/photos-images-readme/blob/main/images/http.JPG"
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status alt="http" height="50" width="50" /> -->
 
 <h2 align="left">💻 Tech Stack</h2>  
 
